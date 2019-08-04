@@ -1,14 +1,7 @@
-<div class="row">
-  <div class="col-xs-8 col-sm-10 col-md-10">
-    <h1>Histories</h1>
-  </div>
-  <div class="col-xs-4 col-sm-2 col-md-2">
-    <%= link_to 'New History', new_history_path, class: "btn btn-info btn-sm" %>
-  </div>
-</div>
+<b>Mis Historias</b>
 
 <div class="row">
-  <% @histories.reverse.each do |history| %>
+ <% @histories.reverse.each do |history| %>
     <div class="col-sm-6 col-md-4">
       <div class="thumbnail">
         <%= link_to(image_tag(history.picture.thumb), history) if history.picture? %>
@@ -28,8 +21,3 @@
     </div>
   <% end %>
 </div>
-
-
-<br>
-
-

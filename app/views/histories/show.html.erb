@@ -12,6 +12,10 @@
         <div class="col-md-8">
           <h1><%= @history.title %></h1>
           <small><%= time_ago_in_words(@history.created_at) %> ago</small>
+          <br>
+          <small>Crated by</small>
+          <small><%= @history.user.email %></small>
+
         </div>
         <div class="col-md-2"></div>
       </div>
@@ -19,8 +23,14 @@
       <hr>
       <div class="row">
         <div class="col-md-2"></div>
-        <div class="col-md-8">
+          <div class="col-md-8">
           <p><%= @history.content %></p>
+              <% if user_signed_in? && current_user.id == @history.user.id %>
+                <p><%= link_to 'Edit', edit_history_path(@history), class: "btn btn-warning btn-sm" %> <%= link_to 'Back', histories_path, class: "btn btn-info btn-sm" %>
+                <%= link_to 'Destroy', @history, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>
+              <% else %>
+                <%= link_to 'Back', histories_path, class: "btn btn-info btn-sm" %></p>
+              <% end %>
         </div>
         <div class="col-md-2"></div>
       </div>
@@ -28,7 +38,7 @@
       <div class="row">
         <div class="col-md-8"></div>
         <div class="col-md-2">
-          <p><%= link_to 'Edit', edit_history_path(@history), class: "btn btn-warning btn-sm" %> <%= link_to 'Back', histories_path, class: "btn btn-info btn-sm" %></p>
+         
         </div>
         <div class="col-md-2"></div>
       </div>
