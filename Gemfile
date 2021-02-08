@@ -32,7 +32,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 
 # gems for images
-gem 'carrierwave', '~> 1.0'
+gem 'carrierwave', '~> 1.3'
 gem 'mini_magick'
 
 # Use Capistrano for deployment
